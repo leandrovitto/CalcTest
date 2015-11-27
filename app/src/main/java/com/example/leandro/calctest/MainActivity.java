@@ -136,7 +136,12 @@ public class MainActivity extends Activity {
 
                     //textView_memoria.setText(temp);
                     setRisultato(temp);
+<<<<<<< HEAD
                     //-------------------------<<<>>>>>>>>>>>>>>>>setRisultato(temp);
+=======
+                    //sono sul mac a fare questa modifica
+                    
+>>>>>>> origin/master
                     //String value2=textView_parziale.getText().toString();
                     //int a=Integer.parseInt(value1);
                     //int b=Integer.parseInt(value2);
