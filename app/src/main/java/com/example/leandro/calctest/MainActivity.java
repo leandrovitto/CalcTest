@@ -136,7 +136,7 @@ public class MainActivity extends Activity {
 
                     //textView_memoria.setText(temp);
                     setRisultato(temp);
-
+                    //-------------------------<<<>>>>>>>>>>>>>>>>setRisultato(temp);
                     //String value2=textView_parziale.getText().toString();
                     //int a=Integer.parseInt(value1);
                     //int b=Integer.parseInt(value2);
