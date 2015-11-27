@@ -120,7 +120,7 @@ public class MainActivity extends Activity {
             }
         });
 
-    //  MODIFICA DAL PC MAC
+
         //public void addListenerOnButton(){
             //buttonSum.setOnClickListener((OnClickListener) this);
             buttonSum.setOnClickListener(new OnClickListener(){
