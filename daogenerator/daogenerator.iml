@@ -30,7 +30,5 @@
     <orderEntry type="library" exported="" name="freemarker-2.3.23" level="project" />
     <orderEntry type="library" exported="" name="greendao-2.1.0" level="project" />
     <orderEntry type="library" exported="" name="greendao-generator-2.1.0" level="project" />
-    <orderEntry type="library" exported="" name="C__Users_Gamers_AndroidStudioProjects_CalcTest_daogenerator_libs_greendao_generator_1_3_1_jar" level="project" />
-    <orderEntry type="library" exported="" name="C__Users_Gamers_AndroidStudioProjects_CalcTest_daogenerator_libs_freemarker_2_3_22_jar" level="project" />
   </component>
 </module>
