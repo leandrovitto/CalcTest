@@ -12,10 +12,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.util.List;
 import java.lang.Float;
 import android.view.View.OnClickListener;
 import android.database.sqlite.SQLiteDatabase;
-
+import android.content.Intent;
 import com.example.daypilot.sqlite.*;
 
 
@@ -144,11 +145,12 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 //DaoSession daoSession = daoMa
+                Intent intent = getIntent();
+                Long leaseId = intent.getLongExtra("Id", 0);
+
                 RoomsDao roomsDao = getDaoSession().getRoomsDao();
-                Rooms rooms;
-                Integer test=10;
-                rooms=roomsDao.load(Long.valueOf(test).longValue());
-                textView_parziale.setText(rooms.getName().toString());
+                Rooms rooms= roomsDao.load(leaseId);
+                textView_parziale.setText(rooms.getName());
             }
                 /*LeaseDao leaseDao = daoSession.getLeaseDao();
                 lease = leaseDao.load(leaseId);
