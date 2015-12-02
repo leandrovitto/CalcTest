@@ -14,10 +14,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.lang.Float;
 import android.view.View.OnClickListener;
+import android.database.sqlite.SQLiteDatabase;
+
+import com.example.daypilot.sqlite.*;
+
 
 
 public class MainActivity extends Activity {
+    public DaoSession getDaoSession() {
+        return daoSession;
+    }
 
+    public void setDaoSession(DaoSession daoSession) {
+        this.daoSession = daoSession;
+    }
+
+    public DaoSession daoSession;
     public TextView textView_memoria,textView_parziale;
     //private Button buttonSum;
     private double risultato=0;
@@ -34,6 +46,13 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "daypilot.sqlite", null);
+        SQLiteDatabase db = helper.getWritableDatabase();
+        DaoMaster daoMaster = new DaoMaster(db);
+        daoSession = daoMaster.newSession();
+
+
+
         textView_parziale = (TextView) findViewById(R.id.textView_parziale);
         textView_memoria = (TextView) findViewById(R.id.textView_memoria);
         Button buttonSum=(Button)findViewById(R.id.buttonPiu);
@@ -48,6 +67,8 @@ public class MainActivity extends Activity {
         Button button8=(Button)findViewById(R.id.button8);
         Button button9=(Button)findViewById(R.id.button9);
         Button buttonC=(Button)findViewById(R.id.buttonC);
+        Button buttonUguale=(Button)findViewById(R.id.buttonUguale);
+
 
         button1.setOnClickListener(new OnClickListener(){
             @Override
@@ -118,6 +139,22 @@ public class MainActivity extends Activity {
                     textView_parziale.setText(testo);
                 }
             }
+        });
+        buttonUguale.setOnClickListener(new OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                //DaoSession daoSession = daoMa
+                RoomsDao roomsDao = getDaoSession().getRoomsDao();
+                Rooms rooms;
+                Integer test=10;
+                rooms=roomsDao.load(Long.valueOf(test).longValue());
+                textView_parziale.setText(rooms.getName().toString());
+            }
+                /*LeaseDao leaseDao = daoSession.getLeaseDao();
+                lease = leaseDao.load(leaseId);
+                if(lease != null) {
+                    editTextItem.setText(lease.getItem());
+            }*/
         });
         
         //public void addListenerOnButton(){
